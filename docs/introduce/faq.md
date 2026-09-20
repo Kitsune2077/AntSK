@@ -56,7 +56,7 @@ MaxKB（飞致云出品）与 FastGPT 都是国内流行的开源知识库问答
 Docker 一行命令即可启动：
 
 ```bash
-git clone https://github.com/AIDotNet/AntSK.git
+git clone https://github.com/shuyu-labs/AntSK.git
 cd AntSK
 docker-compose -f docker-compose.simple.yml up -d
 ```
@@ -155,4 +155,4 @@ AntSK 采用 RAG（检索增强生成）架构，回答基于检索到的知识�
 
 ---
 
-**还有疑问？** 欢迎在 [GitHub Issues](https://github.com/AIDotNet/AntSK/issues) 提出，或访问官网 <https://antsk.cn>。
+**还有疑问？** 欢迎在 [GitHub Issues](https://github.com/shuyu-labs/AntSK/issues) 提出，或访问官网 <https://antsk.cn>。

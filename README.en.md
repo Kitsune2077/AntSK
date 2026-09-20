@@ -3,9 +3,9 @@
 
 **Enterprise-grade LLM AI Knowledge Base / Agent Platform / AI Appliance — built on .NET 9 + Blazor + Semantic Kernel + Kernel Memory**
 
-[![GitHub stars](https://img.shields.io/github/stars/AIDotNet/AntSK?style=social)](https://github.com/AIDotNet/AntSK/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/AIDotNet/AntSK?style=social)](https://github.com/AIDotNet/AntSK/network/members)
-[![GitHub license](https://img.shields.io/github/license/AIDotNet/AntSK)](https://github.com/AIDotNet/AntSK/blob/main/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/shuyu-labs/AntSK?style=social)](https://github.com/shuyu-labs/AntSK/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/shuyu-labs/AntSK?style=social)](https://github.com/shuyu-labs/AntSK/network/members)
+[![GitHub license](https://img.shields.io/github/license/shuyu-labs/AntSK)](https://github.com/shuyu-labs/AntSK/blob/main/LICENSE)
 [![.NET version](https://img.shields.io/badge/.NET-9.0-blue)](https://dotnet.microsoft.com/download/dotnet/9.0)
 
 > **AntSK (Ant Semantic Kernel) is an enterprise-grade AI knowledge base and agent platform built with .NET 9 and Blazor, integrating Semantic Kernel and Kernel Memory. It supports fully offline local LLM inference, self-hosted/on-premises deployment, and domestic (Xinchuang) IT stack compatibility, and serves as the software foundation for enterprise AI appliances.**
@@ -203,11 +203,11 @@ networks:
 ```
 Taking this as an example, it means mounting the local D://model folder of Windows into the container /app/model. If so, the model address in your appsettings.json should be configured as
 
-[LiteDockerCompose](https://github.com/AIDotNet/AntSK/blob/main/docker-compose.simple.yml)
+[LiteDockerCompose](https://github.com/shuyu-labs/AntSK/blob/main/docker-compose.simple.yml)
 
 The compact version is deployed with sqlite-disk by one click
 
-[FullDockerCompose](https://github.com/AIDotNet/AntSK/blob/main/docker-compose.yml)
+[FullDockerCompose](https://github.com/shuyu-labs/AntSK/blob/main/docker-compose.yml)
 
 The full version uses pg+aspire
 
@@ -292,13 +292,13 @@ I'm using CodeFirst mode for the database, so as long as the database connection
 
 This project exists thanks to all the people who contribute.
 
-<a href="https://github.com/AIDotNet/AntSK/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=AIDotNet/AntSK&max=1000&columns=15&anon=1" />
+<a href="https://github.com/shuyu-labs/AntSK/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=shuyu-labs/AntSK&max=1000&columns=15&anon=1" />
 </a>
 
 ## 🚨  Use Protocol
 
-This warehouse follows the [AntSK License](https://github.com/AIDotNet/AntSK?tab=Apache-2.0-1-ov-file) open source protocol.
+This warehouse follows the [AntSK License](https://github.com/shuyu-labs/AntSK?tab=Apache-2.0-1-ov-file) open source protocol.
 
 This project follows the Apache 2.0 agreement, in addition to the following additional terms
 
@@ -313,7 +313,7 @@ This project follows the Apache 2.0 agreement, in addition to the following addi
 
 If you plan to use AntSK in commercial projects, you need to ensure that you follow the following steps:
 
-1. Copyright statement containing AntSK license. [AntSK License](https://github.com/AIDotNet/AntSK?tab=Apache-2.0-1-ov-file).
+1. Copyright statement containing AntSK license. [AntSK License](https://github.com/shuyu-labs/AntSK?tab=Apache-2.0-1-ov-file).
    
 2. If you modify the software source code, you need to clearly indicate these modifications in the source code.
    
@@ -327,7 +327,7 @@ If you have any questions or suggestions, please contact me through my official 
 
 Additionally, you can also contact me via email: antskpro@qq.com
 
-![Official WeChat Account](https://github.com/AIDotNet/AntSK/blob/main/images/gzh.jpg)
+![Official WeChat Account](https://github.com/shuyu-labs/AntSK/blob/main/images/gzh.jpg)
 
 ---
 

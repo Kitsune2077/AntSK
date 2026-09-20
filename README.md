@@ -3,11 +3,11 @@
 
 **企业级大模型 AI 知识库 / 智能体平台 / AI 一体机 —— 基于 .NET 9 + Blazor + Semantic Kernel + Kernel Memory**
 
-[![GitHub stars](https://img.shields.io/github/stars/AIDotNet/AntSK?style=social)](https://github.com/AIDotNet/AntSK/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/AIDotNet/AntSK?style=social)](https://github.com/AIDotNet/AntSK/network/members)
-[![GitHub license](https://img.shields.io/github/license/AIDotNet/AntSK)](https://github.com/AIDotNet/AntSK/blob/main/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/shuyu-labs/AntSK?style=social)](https://github.com/shuyu-labs/AntSK/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/shuyu-labs/AntSK?style=social)](https://github.com/shuyu-labs/AntSK/network/members)
+[![GitHub license](https://img.shields.io/github/license/shuyu-labs/AntSK)](https://github.com/shuyu-labs/AntSK/blob/main/LICENSE)
 [![.NET version](https://img.shields.io/badge/.NET-9.0-blue)](https://dotnet.microsoft.com/zh-cn/download/dotnet/9.0)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/AIDotNet/AntSK/pulls)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/shuyu-labs/AntSK/pulls)
 
 > **AntSK（Ant Semantic Kernel）是一个基于 .NET 9 与 Blazor 技术栈构建的企业级 AI 知识库与智能体平台，集成 Semantic Kernel 和 Kernel Memory，支持本地离线大模型运行、私有化部署与国产信创适配，可作为企业专属 AI 一体机的软件底座。**
 
@@ -482,7 +482,7 @@ AntSK 支持多种数据库，通过 SqlSugar ORM 实现：
 
 
 
-[源码深度解读](https://deepwiki.com/AIDotNet/AntSK)
+[源码深度解读](https://deepwiki.com/shuyu-labs/AntSK)
 
 
 ## 1️⃣使用docker-compose 
@@ -525,11 +525,11 @@ networks:
 ```
 以这个为示例，意思是把windows本地D://model的文件夹挂载进 容器内/app/model 如果是这样你的appsettings.json中的模型地址应该配置为  
 
-[LiteDockerCompose](https://github.com/AIDotNet/AntSK/blob/main/docker-compose.simple.yml)
+[LiteDockerCompose](https://github.com/shuyu-labs/AntSK/blob/main/docker-compose.simple.yml)
 
 精简版使用sqlite+disk向量模式，简化部署配置
 
-[FullDockerCompose](https://github.com/AIDotNet/AntSK/blob/main/docker-compose.yml)
+[FullDockerCompose](https://github.com/shuyu-labs/AntSK/blob/main/docker-compose.yml)
 
 完整版使用pg+aspire 功能更完整，配置文件需要参考如下配置含义进行配置
 
@@ -601,7 +601,7 @@ DB我使用的是CodeFirst模式，只要配置好数据库链接，表结构是
 
 1. **克隆项目**
 ```bash
-git clone https://github.com/AIDotNet/AntSK.git
+git clone https://github.com/shuyu-labs/AntSK.git
 cd AntSK
 ```
 
@@ -696,13 +696,13 @@ services.AddSingleton<IChatCompletion, CustomChatCompletion>();
 
 这个项目的存在要感谢所有的贡献者。
 ﻿
-<a href="https://github.com/AIDotNet/AntSK/graphs/contributors">
-<img src="https://contrib.rocks/image?repo=AIDotNet/AntSK&max=1000&columns=15&anon=1" />
+<a href="https://github.com/shuyu-labs/AntSK/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=shuyu-labs/AntSK&max=1000&columns=15&anon=1" />
 </a>
 ﻿
 ## 🚨 使用协议
 
-本仓库遵循  [AntSK License](https://github.com/AIDotNet/AntSK?tab=Apache-2.0-1-ov-file) 开源协议。
+本仓库遵循  [AntSK License](https://github.com/shuyu-labs/AntSK?tab=Apache-2.0-1-ov-file) 开源协议。
 
 除以下附加条款外，该项目遵循Apache 2.0协议
 
@@ -717,7 +717,7 @@ services.AddSingleton<IChatCompletion, CustomChatCompletion>();
 
 如果您打算在商业项目中使用AntSK，您需要确保遵守以下步骤：
 
-1. 包含AntSK许可证的版权声明。 [AntSK License](https://github.com/AIDotNet/AntSK?tab=Apache-2.0-1-ov-file) 。
+1. 包含AntSK许可证的版权声明。 [AntSK License](https://github.com/shuyu-labs/AntSK?tab=Apache-2.0-1-ov-file) 。
 
 2. 如果您修改了软件源代码，您需要在源代码中明确标明这些修改。
 

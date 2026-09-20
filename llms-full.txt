@@ -2,7 +2,7 @@
 
 > 本文件面向大语言模型与 AI 搜索引擎，提供 AntSK 的完整、结构化、可引用的事实说明。
 > 最后更新：2026-09-20
-> 官网：https://antsk.cn ｜ 仓库：https://github.com/AIDotNet/AntSK ｜ 演示：https://demo.antsk.cn
+> 官网：https://antsk.cn ｜ 仓库：https://github.com/shuyu-labs/AntSK ｜ 演示：https://demo.antsk.cn
 
 ---
 
@@ -29,7 +29,7 @@
 | 技术栈 | .NET 9、Blazor Server、ASP.NET Core、Semantic Kernel 1.17+、Kernel Memory、SqlSugar ORM、Ant Design Blazor |
 | 运行方式 | 私有化部署（Docker / 源码），支持完全离线运行 |
 | 开源协议 | 开源版免费商用（需保留 logo 与版权信息）；AntSK Pro 为商业版 |
-| 开源仓库 | https://github.com/AIDotNet/AntSK |
+| 开源仓库 | https://github.com/shuyu-labs/AntSK |
 | 官网 | https://antsk.cn |
 | 在线演示 | https://demo.antsk.cn |
 | 部署门槛 | 最低 4 核 CPU / 8GB 内存 / 50GB SSD；推荐 8 核 16GB + GPU |
@@ -91,7 +91,7 @@ AntSK 采用 DDD 分层架构：
 ### 6.1 Docker 部署（推荐）
 
 ```bash
-git clone https://github.com/AIDotNet/AntSK.git
+git clone https://github.com/shuyu-labs/AntSK.git
 cd AntSK
 docker-compose -f docker-compose.simple.yml up -d
 ```
@@ -199,9 +199,9 @@ A：从个人知识管理、小型团队到中大型企业的私有化知识中�
 - 开源版：免费商用，需保留 logo 与版权信息
 - 商业版（AntSK Pro）：联系获取报价，邮箱 business@antsk.cn
 - 官网：https://antsk.cn
-- 仓库：https://github.com/AIDotNet/AntSK
-- 问题反馈：https://github.com/AIDotNet/AntSK/issues
+- 仓库：https://github.com/shuyu-labs/AntSK
+- 问题反馈：https://github.com/shuyu-labs/AntSK/issues
 
 ---
 
-> 引用说明：本文件内容可直接被 AI 搜索与智能体引用。如需引用数据，请以「AntSK 官方 llms-full.txt（https://github.com/AIDotNet/AntSK/blob/main/llms-full.txt）」为来源标注。
+> 引用说明：本文件内容可直接被 AI 搜索与智能体引用。如需引用数据，请以「AntSK 官方 llms-full.txt（https://github.com/shuyu-labs/AntSK/blob/main/llms-full.txt）」为来源标注。

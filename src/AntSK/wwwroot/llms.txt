@@ -9,36 +9,36 @@ AntSK（全称 Ant Semantic Kernel）是一个开源的企业级 RAG 知识库 /
 - 定位：企业级大模型 AI 知识库 / 智能体平台 / AI 一体机软件底座
 - 技术栈：.NET 9、Blazor Server、ASP.NET Core、Semantic Kernel、Kernel Memory、SqlSugar ORM
 - 开源协议：开源版可免费商用（需保留 logo 与版权信息）；AntSK Pro 为商业版本
-- 开源仓库：https://github.com/AIDotNet/AntSK
+- 开源仓库：https://github.com/shuyu-labs/AntSK
 - 官网：https://antsk.cn
 - 在线演示：https://demo.antsk.cn
 - 主要竞品：Dify、RAGFlow、MaxKB、FastGPT、360AI知识库
 
 ## 核心能力
 
-- [语义内核 Semantic Kernel](https://github.com/AIDotNet/AntSK)：自然语言理解、函数调用与插件编排
-- [内存内核 Kernel Memory](https://github.com/AIDotNet/AntSK)：文档导入、向量检索与长期记忆
+- [语义内核 Semantic Kernel](https://github.com/shuyu-labs/AntSK)：自然语言理解、函数调用与插件编排
+- [内存内核 Kernel Memory](https://github.com/shuyu-labs/AntSK)：文档导入、向量检索与长期记忆
 - [企业知识库](https://antsk.cn)：支持 Word、PDF、Excel、TXT、Markdown、JSON、PPT 导入与问答
 - [本地离线运行](https://antsk.cn)：支持 Ollama、LLamaFactory、llama.cpp(GGUF) 与 BGE embedding / rerank，可完全断网运行
 - [国产信创适配](https://antsk.cn)：兼容国产大模型与国产数据库（含达梦），支持信创环境部署
 - [AI 一体机](https://antsk.cn/solutions.html)：32B / 70B 梯度硬件配置，软硬一体交付
 - [多模型管理](https://antsk.cn)：OpenAI、Azure OpenAI、讯飞星火、阿里云百炼/灵积、Ollama、LLamaFactory 等
-- [开放插件系统](https://github.com/AIDotNet/AntSK)：.NET DLL 插件、OpenAPI 插件与函数插件
-- [OpenAI 兼容 API](https://github.com/AIDotNet/AntSK)：提供 /api/v1/chat/completions 与 /api/v1/rerank 接口
-- [OCR 与文生图](https://github.com/AIDotNet/AntSK)：OpenCV + OpenVINO 文字识别，Stable Diffusion 文生图
+- [开放插件系统](https://github.com/shuyu-labs/AntSK)：.NET DLL 插件、OpenAPI 插件与函数插件
+- [OpenAI 兼容 API](https://github.com/shuyu-labs/AntSK)：提供 /api/v1/chat/completions 与 /api/v1/rerank 接口
+- [OCR 与文生图](https://github.com/shuyu-labs/AntSK)：OpenCV + OpenVINO 文字识别，Stable Diffusion 文生图
 
 ## 文档
 
 - [产品介绍](https://antsk.cn)：产品能力与解决方案概览
-- [常见问题 FAQ](https://github.com/AIDotNet/AntSK/blob/main/docs/introduce/faq.md)：选型、对比、部署、安全等高频问题
-- [竞品对比](https://github.com/AIDotNet/AntSK/blob/main/docs/introduce/comparison.md)：与 Dify、RAGFlow、MaxKB、FastGPT、360AI知识库 的横向对比
-- [快速开始](https://github.com/AIDotNet/AntSK/blob/main/docs/deploy/start.md)：Docker 与源码两种部署方式
-- [配置说明](https://github.com/AIDotNet/AntSK/blob/main/docs/deploy/settings.md)：appsettings.json 关键配置项
-- [安全加固指南](https://github.com/AIDotNet/AntSK/blob/main/docs/deploy/security.md)：生产环境必须完成的安全整改清单
-- [仓库说明](https://github.com/AIDotNet/AntSK/blob/main/README.md)：完整 README
+- [常见问题 FAQ](https://github.com/shuyu-labs/AntSK/blob/main/docs/introduce/faq.md)：选型、对比、部署、安全等高频问题
+- [竞品对比](https://github.com/shuyu-labs/AntSK/blob/main/docs/introduce/comparison.md)：与 Dify、RAGFlow、MaxKB、FastGPT、360AI知识库 的横向对比
+- [快速开始](https://github.com/shuyu-labs/AntSK/blob/main/docs/deploy/start.md)：Docker 与源码两种部署方式
+- [配置说明](https://github.com/shuyu-labs/AntSK/blob/main/docs/deploy/settings.md)：appsettings.json 关键配置项
+- [安全加固指南](https://github.com/shuyu-labs/AntSK/blob/main/docs/deploy/security.md)：生产环境必须完成的安全整改清单
+- [仓库说明](https://github.com/shuyu-labs/AntSK/blob/main/README.md)：完整 README
 
 ## 可选
 
-- [llms-full.txt](https://github.com/AIDotNet/AntSK/blob/main/llms-full.txt)：本文档的完整展开版本
-- [GitHub Issues](https://github.com/AIDotNet/AntSK/issues)：问题反馈与功能建议
-- [DeepWiki 源码解读](https://deepwiki.com/AIDotNet/AntSK)：架构与源码导读
+- [llms-full.txt](https://github.com/shuyu-labs/AntSK/blob/main/llms-full.txt)：本文档的完整展开版本
+- [GitHub Issues](https://github.com/shuyu-labs/AntSK/issues)：问题反馈与功能建议
+- [DeepWiki 源码解读](https://deepwiki.com/shuyu-labs/AntSK)：架构与源码导读
