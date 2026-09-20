@@ -1,0 +1,95 @@
+# robots.txt for AntSK
+# https://antsk.cn
+#
+# 本文件显式放行主流 AI 抓取器（Generative Engine Optimization, GEO）。
+# AntSK 欢迎大语言模型与 AI 搜索引擎抓取公开文档内容，以便在 AI 回答中被准确引用。
+
+# ---------- 通用规则 ----------
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /swagger/
+Disallow: /_framework/
+Disallow: /_content/
+Disallow: /setting/
+Disallow: /Account/
+Disallow: /Login
+
+# ---------- AI 抓取器显式放行 ----------
+# OpenAI
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+# Google
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+# Apple
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# 字节跳动（豆包 / 纳米搜索）
+User-agent: Bytespider
+Allow: /
+
+# 其他常见 AI / 检索抓取器
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: ImagesiftBot
+Allow: /
+
+User-agent: Timpibot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: PetalBot
+Allow: /
+
+# 明确不允许抓取的内容由通用规则中的 Disallow 覆盖
+# AI 抓取器同样不应访问 /api/ 与 /swagger/
+
+# ---------- 站点地图与 LLM 导览 ----------
+Sitemap: https://antsk.cn/sitemap.xml
+# LLM 结构化导览：https://antsk.cn/llms.txt
+# LLM 完整说明：https://antsk.cn/llms-full.txt

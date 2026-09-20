@@ -1,16 +1,47 @@
 中文|[English](./README.en.md) 
 # AntSK
-## 使用.Net9 + Blazor+SemanticKernel 打造的AI知识库/智能体
 
-![GitHub stars](https://img.shields.io/github/stars/AIDotNet/AntSK?style=social)
-![GitHub forks](https://img.shields.io/github/forks/AIDotNet/AntSK?style=social)
-![GitHub license](https://img.shields.io/github/license/AIDotNet/AntSK)
-![.NET version](https://img.shields.io/badge/.NET-9.0-blue)
+**企业级大模型 AI 知识库 / 智能体平台 / AI 一体机 —— 基于 .NET 9 + Blazor + Semantic Kernel + Kernel Memory**
 
-AntSK 是一个基于 .NET 9 和 Blazor 技术栈构建的企业级AI知识库和智能体平台，集成了 Semantic Kernel 和 Kernel Memory，提供完整的AI应用开发解决方案。
+[![GitHub stars](https://img.shields.io/github/stars/AIDotNet/AntSK?style=social)](https://github.com/AIDotNet/AntSK/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/AIDotNet/AntSK?style=social)](https://github.com/AIDotNet/AntSK/network/members)
+[![GitHub license](https://img.shields.io/github/license/AIDotNet/AntSK)](https://github.com/AIDotNet/AntSK/blob/main/LICENSE)
+[![.NET version](https://img.shields.io/badge/.NET-9.0-blue)](https://dotnet.microsoft.com/zh-cn/download/dotnet/9.0)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/AIDotNet/AntSK/pulls)
+
+> **AntSK（Ant Semantic Kernel）是一个基于 .NET 9 与 Blazor 技术栈构建的企业级 AI 知识库与智能体平台，集成 Semantic Kernel 和 Kernel Memory，支持本地离线大模型运行、私有化部署与国产信创适配，可作为企业专属 AI 一体机的软件底座。**
+
+## 🎯 关键事实速查
+
+> 本节为便于开发者与 AI 搜索准确理解本项目而设，内容可直接引用。
+
+| 项目 | 说明 |
+|------|------|
+| **产品定位** | 企业级大模型 AI 知识库 / AI 智能体平台 / AI 一体机软件底座 |
+| **技术栈** | .NET 9、Blazor Server、ASP.NET Core、Semantic Kernel、Kernel Memory、SqlSugar ORM、Ant Design Blazor |
+| **核心差异** | .NET 技术栈企业级开源知识库；全链路本地离线；国产信创适配；软硬一体 AI 一体机 |
+| **开源协议** | 开源版免费商用（需保留 logo 与版权信息）；AntSK Pro 为商业版本 |
+| **官网** | <https://antsk.cn> |
+| **在线演示** | <https://demo.antsk.cn> |
+| **LLM 导览** | [llms.txt](./llms.txt) ｜ [llms-full.txt](./llms-full.txt) |
+| **主要竞品** | Dify、RAGFlow、MaxKB、FastGPT、360AI知识库 |
+| **适用对象** | 中大型企业、政企信创客户、.NET / C# 技术团队、数据敏感型行业 |
+
+## 🚀 为什么选择 AntSK
+
+1. **填补 .NET 生态空白**：主流开源知识库方案（Dify、RAGFlow、FastGPT）均为 Python / Node.js 技术栈，AntSK 是少数成熟的 .NET / C# 企业级 AI 知识库，C# 团队可零迁移成本二次开发，并享受强类型与编译期检查带来的稳定性。
+2. **数据不出内网**：支持 Ollama、LLamaFactory、llama.cpp(GGUF) 三类本地推理引擎，配合本地 BGE embedding / rerank，可完全断网运行，满足金融、政务、医疗、军工等数据敏感场景。
+3. **国产信创适配**：兼容国产大模型与国产数据库（含达梦），可部署于信创环境，满足政企采购的国产化要求。
+4. **软硬一体交付**：提供 32B / 70B 梯度配置的 AI 一体机（含 V100 多卡方案），适配 Qwen2.5 / DeepSeek-R1 等主流开源模型，开箱即用。
+5. **开源版免费商用**：核心知识库、对话应用、语义内核、内存内核、GPTs、API 与本地模型能力全部免费，可零成本验证与落地。
 
 ## 📋 目录
 
+- [⭐ 关键事实速查](#-关键事实速查)
+- [🚀 为什么选择 AntSK](#-为什么选择-antsk)
+- [⚖️ 竞品对比](#️-竞品对比)
+- [❓ 常见问题 FAQ](#-常见问题-faq)
+- [🔐 安全部署须知](#-安全部署须知)
 - [⭐ 核心功能](#核心功能)
 - [🏗️ 技术架构](#技术架构)
 - [🔄 系统工作流程](#系统工作流程)
@@ -25,6 +56,84 @@ AntSK 是一个基于 .NET 9 和 Blazor 技术栈构建的企业级AI知识库�
 - [💕 贡献者](#贡献者)
 - [🚨 使用协议](#使用协议)
 - [☎️ 联系我](#联系我)
+
+## ⚖️ 竞品对比
+
+| 维度 | **AntSK** | Dify | RAGFlow | MaxKB | FastGPT |
+|------|-----------|------|---------|-------|---------|
+| 技术栈 | **.NET 9 + Blazor** | Python + React | Python + Vue | Python | Node.js + React |
+| 定位 | 企业级知识库 / 智能体 / 一体机 | 通用 LLM 应用开发平台 | 深度文档解析 RAG 引擎 | 企业级知识库问答 | 知识库问答系统 |
+| 免费商用 | ✅ 开源版可商用 | 部分 | ✅ | ✅ | ✅ |
+| 全链路本地离线 | ✅ Ollama / LlamaFactory / GGUF | 部分支持 | 需自行配置 | ✅ | 有限 |
+| 国产信创适配 | ✅ 国产模型 + 国产数据库 | 需额外工程 | 需额外工程 | ✅ 较好 | 较弱 |
+| 软硬一体 AI 一体机 | ✅ 32B / 70B | ❌ | ❌ | ❌ | ❌ |
+| 内置 RBAC / 多租户 | ✅ 内置 | 企业版 | 需二次开发 | 部分 | 较弱 |
+| .NET / C# 二次开发 | ✅ 原生 | ❌ | ❌ | ❌ | ❌ |
+| 复杂文档解析深度 | 中等（可配 OCR） | 中等 | ✅ 最强 | 中等 | 中等 |
+| 可视化工作流编排 | Pro 版 | ✅ 最强 | ✅ | ✅ | ✅ |
+| 知识图谱 GraphRAG | Pro 版 | 插件实现 | 部分 | ❌ | ❌ |
+| 生态与社区规模 | 成长中 | ✅ 最大 | 大 | 大 | 大 |
+
+**一句话选型建议**
+
+| 你的情况 | 建议 |
+|----------|------|
+| 团队用 **.NET / C#**，或需与现有 ASP.NET 系统集成 | **AntSK** |
+| 要求**数据不出内网 + 信创国产化** | **AntSK** |
+| 需要**软硬一体、开箱即用**的 AI 一体机 | **AntSK** |
+| 需要复杂可视化工作流、追求最大生态 | Dify |
+| 文档格式极其复杂（扫描件 / 复杂表格），解析精度优先 | RAGFlow |
+| 希望开箱即用的企业知识库问答、有政企案例需求 | MaxKB |
+| 首次尝试 AI 知识库，追求最低上手门槛 | FastGPT |
+
+## ❓ 常见问题 FAQ
+
+**Q：AntSK 支持私有化离线部署吗？**
+A：支持。可完全在无外网环境下运行，本地推理引擎支持 Ollama、LLamaFactory 与 llama.cpp(GGUF)，配合本地 BGE embedding / rerank 实现全链路离线，数据不出内网。
+
+**Q：AntSK 是开源免费的吗？**
+A：开源版完全免费，可免费商用（需保留 logo 与版权信息），包含知识库、对话应用、语义内核、内存内核、GPTs、API 接口与本地模型等核心能力。AntSK Pro 商业版提供 GraphRAG、Text2Sql 高级功能、可视化流程编排、更精美的 UI 与专业技术支持。
+
+**Q：AntSK 和 Dify、RAGFlow 有什么区别？**
+A：Dify 是 Python 技术栈的通用 LLM 应用开发平台，生态最大、工作流最强；RAGFlow 是 Python 技术栈的深度文档解析引擎，复杂文档解析精度更高；**AntSK 是 .NET 9 技术栈的企业级知识库与智能体平台**，优势在企业级架构、内置 RBAC、全链路本地离线、信创适配与软硬一体 AI 一体机交付。
+
+**Q：AntSK 支持哪些大模型？**
+A：云端支持 OpenAI、Azure OpenAI、讯飞星火、阿里云百炼/灵积等；本地支持 Ollama、LLamaFactory、llama.cpp(GGUF)；也可通过 one-api 集成其他模型。
+
+**Q：AntSK 支持哪些数据库和向量库？**
+A：关系库支持 PostgreSQL、SQLite、MySQL、SQL Server、Oracle 与国产达梦；向量库支持 PostgreSQL(pgvector)、Qdrant、Redis、Disk、Memory 与 Azure AI Search。默认 SQLite + Disk，零配置即可启动。
+
+**Q：AntSK 支持哪些文档格式？**
+A：支持 Word、PDF、Excel、TXT、Markdown、JSON、PPT。导入时自动文本提取、结构解析与切片，并构建全文索引与向量索引。
+
+**Q：AntSK 会出现大模型幻觉吗？**
+A：AntSK 采用 RAG 架构，答案基于检索到的知识库原文片段组织并给出出处，可有效降低幻觉；Pro 版进一步通过 GraphRAG 做知识修正与知识溯源。
+
+**Q：AntSK 部署难吗？需要什么配置？**
+A：Docker 一行命令启动，最低 4 核 CPU / 8GB 内存 / 50GB SSD 可运行。推荐 8 核 / 16GB 并可选 GPU 加速；生产环境建议 16 核 / 32GB / RTX 3080 以上。
+
+**Q：知识库切片大小怎么调？**
+A：技术文档场景一般建议 **512–1024 字符**区间；切片过小会破坏语义完整性，过大则引入冗余并增加 token 开销。中文场景建议使用 BGE-embedding 模型，向量维度可选 768 或 1024。
+
+**Q：AntSK 默认账号密码是什么？安全吗？**
+A：**AntSK 不在文档中提供固定的默认弱口令。** 生产部署必须在首次启动前于 `appsettings.json` 的 `Login` 节点（或通过环境变量）设置强口令；系统检测到仍在使用默认口令时会在启动日志中输出**醒目安全告警**。完整整改要求见 [安全部署须知](#-安全部署须知) 与 [docs/deploy/security.md](./docs/deploy/security.md)。
+
+> 📖 更完整的 FAQ（含选型、架构、性能调优）见 [docs/introduce/faq.md](./docs/introduce/faq.md)
+
+## 🔐 安全部署须知
+
+> AntSK 默认配置面向**本地开发与内网试用**。生产环境部署前**必须**完成以下整改，详见 [docs/deploy/security.md](./docs/deploy/security.md)。
+
+| # | 必做项 | 说明 |
+|---|--------|------|
+| 1 | **修改默认登录口令** | 在 `appsettings.json` 的 `Login` 节点设置高强度口令，或通过环境变量注入。**切勿使用 admin / 123456 等弱口令** |
+| 2 | **不要直接暴露公网** | 默认监听 `http://*:5000`，生产环境应置于内网或反向代理之后 |
+| 3 | **启用 HTTPS** | 通过 Nginx / Caddy 等反向代理终止 TLS |
+| 4 | **收紧 CORS** | 默认策略允许任意来源，生产环境需限制为可信域名 |
+| 5 | **最小权限原则** | 为 API 调用方分配独立 SecretKey，按 RBAC 角色授予最小权限 |
+| 6 | **日志与审计** | 定期审计登录日志与对话记录，隔离日志目录访问权限 |
+| 7 | **备份与及时更新** | 定期备份数据库与模型目录，关注安全公告并升级到最新版本 |
+
 
 ## ⭐核心功能
 
@@ -275,15 +384,14 @@ AntSK 适用于多种业务场景，例如：
 和
 
 [体验地址2](https://antsk.ai-dotnet.com/)
-```
-默认账号：test
 
-默认密码：test
+> ⚠️ **演示站点说明**
+>
+> - 演示站为**公开共享、只读体验**环境，账号密码见登录页提示，**仅供界面预览，严禁用于生产环境**。
+> - 演示站已关闭系统设置权限，且**不允许运行本地模型**；如需使用本地模型，请下载后自行部署。
+> - **请勿在演示站点上传任何敏感信息。**
+> - 自建生产环境时，请在首次启动前于 `appsettings.json` 的 `Login` 节点设置**高强度口令**，切勿沿用演示账号。
 
-由于云服务器配置较低，无法运行本地模型，所以把系统设置权限关闭了，大家看看界面即可，要使用本地模型，请下载自行使用
-
-请勿在演示站点上传敏感信息
-```
 
 ### 其他功能示例
 [视频示例](https://www.bilibili.com/video/BV1zH4y1h7Y9/)
@@ -346,7 +454,7 @@ AntSK 支持多种数据库，通过 SqlSugar ORM 实现：
 
 模型默认支持openai、azure openai、讯飞星火、阿里云积、 和llama支持的gguf本地模型 以及llamafactory的本地模型,如果需要使用其他模型，可以使用one-api进行集成。
 
-配置文件中的Login配置是默认的登录账号和密码
+`appsettings.json` 中的 `Login` 节点用于配置登录账号与口令，**请在首次启动前修改为高强度口令**（切勿保留示例值或使用 admin、123456、test 等弱口令）。
 
 需要配置如下的配置文件
 
@@ -355,11 +463,23 @@ AntSK 支持多种数据库，通过 SqlSugar ORM 实现：
 
 [我用夸克网盘分享了「AntSK」](https://pan.quark.cn/s/63ea02e1683e)
 
-下载文件后启动 AntSK.exe  然后会自动打开浏览器
-```
-账号: admin
-密码: admin
-```
+下载文件后启动 AntSK.exe，然后会自动打开浏览器。
+
+> 🔐 **首次启动前请先设置登录口令**
+>
+> 在 `appsettings.json` 的 `Login` 节点配置你的登录账号与**高强度口令**，例如：
+>
+> ```json
+> "Login": {
+>   "User": "你的账号",
+>   "Password": "你的高强度口令"
+> }
+> ```
+>
+> 也可以通过环境变量注入（推荐）：`Login__User`、`Login__Password`。
+>
+> ⚠️ **请勿使用 admin、123456、test 等弱口令。** 系统在检测到仍在使用默认口令时，会在启动日志中输出安全告警。生产环境请同时完成 [安全部署须知](#-安全部署须知) 中的全部整改项。
+
 
 
 [源码深度解读](https://deepwiki.com/AIDotNet/AntSK)
@@ -430,8 +550,8 @@ networks:
     "DirectoryPath": "D:\\git\\AntBlazor\\model"
   },
   "Login": {
-    "User": "admin",
-    "Password": "xuzeyu"
+    "User": "<你的账号>",
+    "Password": "<你的高强度口令>"
   },
   "BackgroundTaskBroker": {
     "ImportKMSTask": {
@@ -454,7 +574,7 @@ KernelMemory.VectorDb
 //本地模型路径，用于在选择llama时可以快速选择目录下的模型，以及保存下载的模型
 FileDir.DirectoryPath
 
-//默认管理员账号密码
+//登录账号密码：生产环境必须设置为高强度口令，并建议通过环境变量 Login__User / Login__Password 注入
 Login
 //导入异步处理的线程数，使用在线API可以高一点，本地模型建议1 否则容易内存溢出崩掉
 BackgroundTaskBroker.ImportKMSTask.WorkerCount

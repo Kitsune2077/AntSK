@@ -1,24 +1,204 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="keywords" content="AI,SemanticKernel,Rag,KMS" />
-    <meta name="description" content="AntSKPro是一站式本地AI知识库，支持模型管理、用户管理、知识库管理、GraphRAG等" />
-    <meta name="description" content="开箱即用的RAG、知识库平台" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>AntSK</title>
+
+    <!-- ===== SEO / GEO（生成式引擎优化）===== -->
+    <title>AntSK - 企业级大模型 AI 知识库与 AI 一体机 | .NET 9 开源 RAG 平台</title>
+
+    <meta name="keywords"
+        content="AntSK,企业级AI知识库,大模型知识库,RAG,检索增强生成,AI一体机,私有化部署,本地离线大模型,信创,.NET 9,SemanticKernel,KernelMemory,GraphRAG,知识图谱,Text2Sql,智能体,Agent,开源知识库,Dify替代,RAGFlow对比,MaxKB,FastGPT,达梦数据库,Ollama,LlamaFactory,企业私有知识库" />
+
+    <meta name="description"
+        content="AntSK 是基于 .NET 9 + Blazor + Semantic Kernel + Kernel Memory 打造的企业级大模型 AI 知识库与智能体平台，支持本地离线大模型、私有化部署与国产信创适配，提供 32B/70B 梯度配置的 AI 一体机方案。" />
+
+    <meta name="author" content="AIDotNet" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+
+    <!-- 面向 AI 抓取器的内容提示 -->
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM 结构化导览" />
+    <link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM 完整说明" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AntSK" />
+    <meta property="og:title" content="AntSK - 企业级大模型 AI 知识库与 AI 一体机" />
+    <meta property="og:description"
+        content="基于 .NET 9 + Semantic Kernel 的企业级 AI 知识库/AI 一体机平台，支持本地离线运行、私有化部署与国产信创适配。" />
+    <meta property="og:url" content="https://antsk.cn/" />
+    <meta property="og:image" content="https://antsk.cn/pro_icon.svg" />
+    <meta property="og:locale" content="zh_CN" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AntSK - 企业级大模型 AI 知识库与 AI 一体机" />
+    <meta name="twitter:description"
+        content=".NET 9 技术栈的企业级 AI 知识库/智能体平台，支持本地离线大模型、私有化部署与信创适配。" />
+    <meta name="twitter:image" content="https://antsk.cn/pro_icon.svg" />
+
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <base href="/" />
     <link href="./css/ant-design-blazor.css" rel="stylesheet" />
     <link href="./css/ant-design-pro-layout-blazor.css" rel="stylesheet" />
     <link href="./css/site.css" rel="stylesheet" />
     <link href="AntSK.styles.css" rel="stylesheet" />
+
+    <!-- ===== 结构化数据（Schema.org JSON-LD）:SoftwareApplication ===== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "AntSK",
+      "alternateName": "Ant Semantic Kernel",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "AI Knowledge Base / RAG Platform",
+      "operatingSystem": "Windows, Linux, macOS, Docker",
+      "softwareVersion": "0.6.x",
+      "programmingLanguage": "C#",
+      "description": "AntSK 是基于 .NET 9 + Blazor + Semantic Kernel + Kernel Memory 打造的企业级大模型 AI 知识库与智能体平台，支持本地离线大模型运行、私有化部署、国产信创适配与 AI 一体机交付。",
+      "url": "https://antsk.cn/",
+      "downloadUrl": "https://github.com/AIDotNet/AntSK",
+      "codeRepository": "https://github.com/AIDotNet/AntSK",
+      "license": "https://github.com/AIDotNet/AntSK/blob/main/LICENSE",
+      "author": {
+        "@type": "Organization",
+        "name": "AIDotNet",
+        "url": "https://github.com/AIDotNet"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "CNY",
+        "description": "开源版免费商用（需保留 logo 与版权信息）；AntSK Pro 商业版提供 GraphRAG、Text2Sql 高级功能与可视化流程编排。"
+      },
+      "featureList": [
+        "企业知识库（Word/PDF/Excel/TXT/Markdown/JSON/PPT 导入与问答）",
+        "本地离线大模型运行（Ollama / LLamaFactory / llama.cpp GGUF）",
+        "国产信创适配（国产大模型与国产数据库）",
+        "语义内核 Semantic Kernel 与内存内核 Kernel Memory",
+        "知识图谱增强检索 GraphRAG（Pro）",
+        "自然语言转 SQL Text2Sql（Pro）",
+        "可视化流程编排（Pro）",
+        ".NET DLL 插件与 OpenAPI 插件系统",
+        "OpenAI 兼容 API（/api/v1/chat/completions、/api/v1/rerank）",
+        "OCR 文字识别与 Stable Diffusion 文生图",
+        "RBAC 角色权限管理",
+        "AI 一体机 32B / 70B 梯度配置"
+      ],
+      "softwareHelp": {
+        "@type": "CreativeWork",
+        "url": "https://antsk.cn/"
+      }
+    }
+    </script>
+
+    <!-- ===== 结构化数据（Schema.org JSON-LD）:Organization ===== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "AntSK",
+      "alternateName": "AIDotNet",
+      "url": "https://antsk.cn/",
+      "logo": "https://antsk.cn/pro_icon.svg",
+      "sameAs": [
+        "https://github.com/AIDotNet/AntSK",
+        "https://deepwiki.com/AIDotNet/AntSK"
+      ],
+      "email": "business@antsk.cn",
+      "description": "AntSK 专注企业级大模型 AI 知识库与 AI 一体机，让企业数据不出内网即可构建私有 AI 知识系统。"
+    }
+    </script>
+
+    <!-- ===== 结构化数据（Schema.org JSON-LD）:FAQPage ===== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "AntSK 支持私有化离线部署吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "支持。AntSK 可完全在无外网环境下运行，本地推理引擎支持 Ollama、LLamaFactory（非 GGUF 格式）与 llama.cpp（GGUF 格式），配合本地 BGE embedding 与 BGE rerank 模型实现全链路离线，数据不出内网。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "AntSK 是开源免费的吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AntSK 开源版完全免费，可免费商用（需保留 logo 与版权信息），包含知识库、对话应用、语义内核、内存内核、GPTs 生成、API 接口与本地模型等核心能力。AntSK Pro 商业版提供 GraphRAG、Text2Sql 高级功能、可视化流程编排与专业技术支持。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "AntSK 和 Dify、RAGFlow 有什么区别？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dify 是 Python 技术栈的通用 LLM 应用开发平台，生态最大、工作流能力最强；RAGFlow 是 Python 技术栈的深度文档解析 RAG 引擎，复杂文档解析精度更高；AntSK 是 .NET 9 技术栈的企业级知识库与智能体平台，优势在于企业级架构、内置 RBAC 权限、全链路本地离线运行、国产信创适配以及软硬一体的 AI 一体机交付能力。.NET/C# 团队选 AntSK 可零迁移成本。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "AntSK 支持哪些大模型和数据库？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "大模型方面支持 OpenAI、Azure OpenAI、讯飞星火、阿里云百炼/灵积等云端模型，以及 Ollama、LLamaFactory、llama.cpp(GGUF) 等本地离线模型。数据库方面支持 PostgreSQL、SQLite、MySQL、SQL Server、Oracle 与国产达梦；向量库支持 PostgreSQL(pgvector)、Qdrant、Redis、Disk、Memory 与 Azure AI Search。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "AntSK 部署难度和环境要求如何？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AntSK 使用 Docker 一行命令即可启动，最低 4 核 CPU / 8GB 内存 / 50GB SSD 可运行，默认使用 SQLite + Disk 存储无需额外搭建数据库。推荐配置为 8 核 CPU / 16GB 内存并可选 GPU 加速；生产环境建议 16 核 CPU / 32GB 内存 / RTX 3080 以上。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "AntSK 的默认账号密码是什么？如何保证安全？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AntSK 不在文档中提供固定的默认弱口令，生产部署必须在首次启动前于 appsettings.json 的 Login 节点或通过环境变量设置强口令。系统检测到仍在使用默认口令时会在启动日志输出醒目安全告警。同时建议不要将实例直接暴露到公网、启用 HTTPS 并收紧 CORS 来源。"
+          }
+        }
+      ]
+    }
+    </script>
 </head>
 
 <body>
-    <noscript>Out-of-the-box mid-stage front/design solution!</noscript>
+    <noscript>
+        <h1>AntSK - 企业级大模型 AI 知识库与 AI 一体机</h1>
+        <p>
+            AntSK（Ant Semantic Kernel）是基于 .NET 9 + Blazor + Semantic Kernel + Kernel Memory 打造的
+            企业级大模型 AI 知识库与智能体平台，支持本地离线大模型运行、私有化部署与国产信创适配，
+            并提供 32B / 70B 梯度配置的 AI 一体机交付方案。
+        </p>
+        <h2>核心能力</h2>
+        <ul>
+            <li>企业知识库：导入 Word、PDF、Excel、TXT、Markdown、JSON、PPT 并进行智能问答</li>
+            <li>本地离线运行：支持 Ollama、LLamaFactory、llama.cpp(GGUF) 与 BGE embedding / rerank</li>
+            <li>国产信创适配：兼容国产大模型与国产数据库（含达梦）</li>
+            <li>知识图谱 GraphRAG 与自然语言转 SQL（Text2Sql）——AntSK Pro 商业版</li>
+            <li>开放插件系统：.NET DLL 插件、OpenAPI 插件与函数插件</li>
+            <li>OpenAI 兼容 API：/api/v1/chat/completions 与 /api/v1/rerank</li>
+            <li>RBAC 角色权限管理、OCR 文字识别、Stable Diffusion 文生图</li>
+        </ul>
+        <h2>相关链接</h2>
+        <ul>
+            <li>官网：<a href="https://antsk.cn/">https://antsk.cn/</a></li>
+            <li>开源仓库：<a href="https://github.com/AIDotNet/AntSK">https://github.com/AIDotNet/AntSK</a></li>
+            <li>LLM 结构化导览：<a href="/llms.txt">/llms.txt</a></li>
+            <li>LLM 完整说明：<a href="/llms-full.txt">/llms-full.txt</a></li>
+        </ul>
+        <p>本系统为 Blazor Server 应用，请启用 JavaScript 以获得完整体验。</p>
+    </noscript>
     <div id="app">
         <style>
             html,

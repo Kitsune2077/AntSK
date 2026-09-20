@@ -21,8 +21,8 @@ sidebar_position: 2
     "FileDirectory": "D:\\Code\\AI\\AntBlazor\\model\\"
   },
   "Login": {
-    "User": "admin",
-    "Password": "xuzeyu"
+    "User": "<你的账号>",
+    "Password": "<你的高强度口令>"
   },
   "BackgroundTaskBroker": {
     "ImportKMSTask": {
