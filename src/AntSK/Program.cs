@@ -109,6 +109,9 @@ app.CodeFirst();
 app.LoadFun();
 app.InitDbData();
 
+//登录口令安全校验：未配置口令时自动生成高强度初始口令；检测到弱口令时输出安全告警
+app.ValidateLoginSecurity();
+
 app.UseRouting();
 
 app.MapBlazorHub();

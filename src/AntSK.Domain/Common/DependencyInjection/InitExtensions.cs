@@ -12,7 +12,9 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using AntSK.Domain.Options;
 using System.Reflection;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,6 +28,142 @@ namespace AntSK.Domain.Common.DependencyInjection
         {
             _logger = logger;
         }
+
+        /// <summary>
+        /// 登录口令安全校验（安全加固）。
+        /// - 未配置口令时：自动生成高强度随机口令并持久化，避免出现固定弱口令；
+        /// - 配置了弱口令时：输出醒目安全告警，提示尽快更换；
+        /// - 配置了强口令时：记录校验通过。
+        /// </summary>
+        private static readonly string[] WeakPasswordBlacklist =
+        {
+            "admin", "123456", "12345678", "123456789", "test", "password",
+            "root", "qwerty", "111111", "000000", "antsk", "p@ssw0rd", "admin123"
+        };
+
+        public static WebApplication ValidateLoginSecurity(this WebApplication app)
+        {
+            try
+            {
+                var user = LoginOption.User;
+                if (string.IsNullOrWhiteSpace(user))
+                {
+                    user = "admin";
+                }
+
+                var password = LoginOption.Password;
+
+                // 情况一：未配置口令 —— 自动生成高强度随机口令，确保出厂即安全
+                if (string.IsNullOrWhiteSpace(password))
+                {
+                    var credentialFile = Path.Combine(AppContext.BaseDirectory, "antsk-initial-credential.txt");
+                    var generated = ReadPersistedCredential(credentialFile);
+
+                    if (string.IsNullOrWhiteSpace(generated))
+                    {
+                        generated = GenerateStrongPassword(20);
+                        try
+                        {
+                            File.WriteAllText(credentialFile,
+                                "AntSK 自动生成的初始登录口令（仅在未配置 Login.Password 时生成）" + Environment.NewLine +
+                                "User: " + user + Environment.NewLine +
+                                "Password: " + generated + Environment.NewLine +
+                                "生成时间: " + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + Environment.NewLine + Environment.NewLine +
+                                "请在 appsettings.json 的 Login 节点或环境变量 Login__Password 中配置自己的高强度口令，" + Environment.NewLine +
+                                "配置完成后可删除本文件。" + Environment.NewLine,
+                                Encoding.UTF8);
+                        }
+                        catch (Exception ex)
+                        {
+                            _logger?.LogWarning("初始口令文件写入失败（不影响本次启动）：" + ex.Message);
+                        }
+                    }
+
+                    LoginOption.User = user;
+                    LoginOption.Password = generated;
+
+                    _logger?.LogWarning(new string('=', 78));
+                    _logger?.LogWarning("[SECURITY] 未检测到自定义登录口令，已自动生成高强度初始口令。");
+                    _logger?.LogWarning("[SECURITY] 登录账号: " + user);
+                    _logger?.LogWarning("[SECURITY] 初始口令: " + generated);
+                    _logger?.LogWarning("[SECURITY] 已保存至: " + credentialFile);
+                    _logger?.LogWarning("[SECURITY] 请尽快在 appsettings.json 的 Login 节点或环境变量 Login__Password 中设置自己的口令。");
+                    _logger?.LogWarning(new string('=', 78));
+                    return app;
+                }
+
+                // 情况二：配置了弱口令 —— 输出醒目安全告警
+                var normalized = password.Trim().ToLowerInvariant();
+                if (password.Length < 8 || WeakPasswordBlacklist.Contains(normalized))
+                {
+                    _logger?.LogWarning(new string('=', 78));
+                    _logger?.LogWarning("[SECURITY WARNING] 检测到 AntSK 正在使用弱登录口令，存在被暴力破解的风险！");
+                    _logger?.LogWarning("[SECURITY WARNING] 请立即在 appsettings.json 的 Login 节点或环境变量 Login__Password 中更换为高强度口令：");
+                    _logger?.LogWarning("[SECURITY WARNING] 建议长度 >= 16 位，且包含大小写字母、数字与特殊字符。");
+                    _logger?.LogWarning("[SECURITY WARNING] 完整加固要求见 docs/deploy/security.md。");
+                    _logger?.LogWarning(new string('=', 78));
+                    return app;
+                }
+
+                _logger?.LogInformation("登录口令安全校验通过（已使用自定义高强度口令）。");
+            }
+            catch (Exception ex)
+            {
+                _logger?.LogWarning("登录口令安全校验执行异常（已跳过，不影响启动）：" + ex.Message);
+            }
+            return app;
+        }
+
+        private static string ReadPersistedCredential(string credentialFile)
+        {
+            try
+            {
+                if (!File.Exists(credentialFile))
+                {
+                    return null;
+                }
+                return File.ReadAllLines(credentialFile)
+                    .FirstOrDefault(line => line.StartsWith("Password:", StringComparison.OrdinalIgnoreCase))
+                    ?.Substring("Password:".Length)
+                    .Trim();
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        private static string GenerateStrongPassword(int length)
+        {
+            const string upper = "ABCDEFGHJKLMNPQRSTUVWXYZ";
+            const string lower = "abcdefghijkmnopqrstuvwxyz";
+            const string digits = "23456789";
+            const string special = "!@#$%^&*-_=+";
+            const string all = upper + lower + digits + special;
+
+            var chars = new List<char>(length)
+            {
+                upper[RandomNumberGenerator.GetInt32(upper.Length)],
+                lower[RandomNumberGenerator.GetInt32(lower.Length)],
+                digits[RandomNumberGenerator.GetInt32(digits.Length)],
+                special[RandomNumberGenerator.GetInt32(special.Length)]
+            };
+
+            while (chars.Count < length)
+            {
+                chars.Add(all[RandomNumberGenerator.GetInt32(all.Length)]);
+            }
+
+            // 洗牌，避免前四位固定为「大写+小写+数字+特殊字符」的规律
+            for (var i = chars.Count - 1; i > 0; i--)
+            {
+                var j = RandomNumberGenerator.GetInt32(i + 1);
+                (chars[i], chars[j]) = (chars[j], chars[i]);
+            }
+
+            return new string(chars.ToArray());
+        }
+
         /// <summary>
         /// 使用codefirst创建数据库表
         /// </summary>

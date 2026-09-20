@@ -8,7 +8,7 @@ sidebar_position: 1
 
 模型默认支持openai、azure openai 和llama支持的gguf本地模型,如果需要使用其他模型，可以使用one-api进行集成。
 
-配置文件中的Login配置是默认的登陆账号和密码
+`appsettings.json` 中的 `Login` 节点用于配置登录账号与口令，**请在首次启动前修改为高强度口令**（切勿保留示例值或使用 admin、123456、test 等弱口令）。生产环境建议通过环境变量 `Login__User` / `Login__Password` 注入，完整要求见 [安全加固指南](./security.md)。
 
 需要配置如下的配置文件
 
